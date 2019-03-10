@@ -20,7 +20,12 @@ AFRAME.registerComponent('uipack-button', {
 
     self.button = document.createElement("a-circle");
 
-    self.button.classList.add("uipack", "uipack-button", "clickable");
+    // AFRAME v9 needs to have all children with the active raycasting class
+
+    if(AFRAME.version.split(".")[1] === "9") {
+
+        self.button.classList.add("uipack", "uipack-button", "clickable");
+    }
 
     this.el.appendChild(self.button);
 
